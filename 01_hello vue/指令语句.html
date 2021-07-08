@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" class="text" v-model='value'>
+        <h3>{{value}}</h3>
+    </div>
+    
+    <!-- Vue模板语法
+        1.插值运算符：{{表达式}}
+            用于动态展示数据
+        2.什么是表达式什么是语句
+            2.1表达式：没有分号，有返回值
+            2.2语句：有分号，没有方绘制
+        3.指令语法：
+            3.1 v-model='xxx'
+                作用：双向绑定
+                数据由model层流向view层，展示数据
+                数据由view层流向model层，修改数据
+                用于收集表单数据
+            3.2 v-bind='xxx'
+                作用：单向绑定
+                全写为v-bind:属性名=值，可以缩写为:属性名=值
+                常用于组件之间传递数据
+            3.3 v-on:click='xxx'
+                作用：用于绑定事件
+                简写：@click='xxx'
+
+    -->
+    <script src="../js/vue.js"></script>
+    <script>
+        const value='inferno'
+        new Vue({
+            el:'#app',
+            data:{
+                value
+            }
+        })
+    </script>
+</body>
+</html>

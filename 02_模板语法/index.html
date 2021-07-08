@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <input type="text"  v-model='count' @keyup='handleEnter' :disabled='disabled'>
+        <button @click='handleIncreasment' >+1</button>
+    </div>
+
+    <!-- vuejs的模板语法：
+            模板的理解：动态的html页面，包含了一些JS语法代码
+        1.双大括号表达式(插值表达式)
+            语法：{{exp}}或者{{{exp}}}
+            功能：向页面输出数据，可以调用对象的方法
+            注意：只能写在标签内，不能用于标签属性
+        2.指令一：强制数据绑定，单向数据绑定
+        语法：v-bind:属性名=值，简写为  :属性名=值
+        功能：指定变化的属性值，单向绑定数据
+        作用：用于组件之间传输数据
+
+        3.指令二：双向数据绑定
+        语法：v-model='Vue配置对象里中data对象中的值'
+        功能：双向数据绑定
+            数据从model层流向view层，展示数据
+            数据从view层流向model层，修改model层数据
+        作用：用于收集表单数据
+
+        4.指令三：事件绑定
+        语法：v-on:事件名=‘Vue配置对象中method对象中的值’，简写：@事件名=‘’
+        功能：绑定事件
+
+    -->
+    <script src="../js/vue.js"></script>
+    <script>
+        const title='输入一个初始值按回车开始+1'
+        const count=''
+        const disabled=false
+        new Vue({
+            el:'#app',
+            data:{
+                count,
+                title,
+                disabled,
+            },
+            methods: {
+                handleIncreasment(){
+                    this.count=+this.count+1
+                },
+                handleEnter(e){
+                    if(e.keyCode===13){
+                        this.disabled=true
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+</html>
